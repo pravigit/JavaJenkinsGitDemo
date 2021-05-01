@@ -31,9 +31,19 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        sh 'echo "Deploy Started"'
-        emailext(subject: 'Ocen Blue Pipeline Job', body: 'Congratulation !!! Your Ocen Blue Pipeline is SUCCESS', to: 'praveen.ula@gmail.com')
+      parallel {
+        stage('Deploy') {
+          steps {
+            sh 'echo "Deploy Started"'
+          }
+        }
+
+        stage('Send EMAIL') {
+          steps {
+            mail(subject: 'Open Blue Ocean Pipeline', body: 'Congratulations !!!! Your Pipeline is Success', to: 'praveen.ula@gmail.com')
+          }
+        }
+
       }
     }
 
