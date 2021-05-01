@@ -33,7 +33,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh 'echo "Deploy Started"'
-        emailext(subject: 'Ocen Blue Pipeline Job', body: 'Congratulation !!! Your Ocen Blue Pipeline is SUCCESS', from: 'Jenkins Pipeline', to: 'praveen.ula@gmail.com')
+        emailext(subject: 'Ocen Blue Pipeline Job', body: 'Congratulation !!! Your Ocen Blue Pipeline is SUCCESS', from: 'JenkinsOcenBluePipeline', to: 'praveen.ula@gmail.com')
       }
     }
 
